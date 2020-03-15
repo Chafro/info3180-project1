@@ -1,0 +1,33 @@
+  
+{% extends 'base.html' %}
+
+{% block main %}
+
+{% include 'flash_messages.html' %}
+<div class='flexboxx'> 
+{% for user in users: %}
+    <div class='flex'>
+    	<div>
+        	<img src = "{{url_for('static', filename = 'uploads/' + user.8)}}" alt = "{{user.8}}" class= "image" height="300" width="300">
+        </div> 
+    	<div>
+    		<ul style="list-style-type:none;">
+    			<li>
+    				{{user.1}} {{user.2}}
+    			</li>
+    			<li>
+    				{{user.3}}
+    			</li>
+    			<li>
+    				{{user.5}}
+    			</li>
+    		</ul>
+    	</div>
+    	<form action="/profile/{{user.0}}">
+    		<input type="submit" value="View Profile" />
+		</form>
+    </div>
+    <br>
+{% endfor%}
+</div>
+{% endblock %}

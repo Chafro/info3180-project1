@@ -1,0 +1,45 @@
+{% extends "base.html"%}
+
+{% block main %} 
+
+<body>
+	<div id = "content">
+		<form method="POST" action="/profile" enctype="multipart/form-data">
+ 			{{ form.csrf_token }}
+ 			<div>
+ 				<label>{{ form.firstname.label }}</label>
+ 				{{ form.firstname(size=20) }}
+ 			</div>
+ 			<div>
+ 				<label>{{ form.lastname.label }}</label>
+ 				{{ form.lastname(size=20) }}
+ 			</div>
+ 			<div>
+ 				<label>{{ form.email.label }}</label>
+ 				{{ form.email(size=20) }}
+ 			</div>
+ 			<div>
+ 				<label>{{ form.gender.label }}</label>
+ 				{{ form.gender }}
+ 			</div>
+ 			<div>
+ 				<label>{{ form.location.label }}</label>
+ 				{{ form.location(size=20) }}
+ 			</div>
+ 			<div>
+ 				<label>{{ form.bio.label }}</label>
+ 				{{ form.bio(size=40) }}
+ 			</div>
+ 			<div>
+	    		<label>{{ form.file.label }}</label>
+	    		{{ form.file(class="form-control") }}
+			</div>
+
+
+ 			<button type="submit">Add Profile</button>
+		</form>
+	</div>
+</body>
+</html>
+
+{% endblock %}.

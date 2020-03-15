@@ -1,0 +1,47 @@
+  
+{% extends 'base.html' %}
+
+{% block main %}
+
+{% include 'flash_messages.html' %}
+<div class='flexboxx'> 
+
+    <div class='flex'>
+        <div>
+            <div>
+                <img src = "{{url_for('static', filename = 'uploads/' + cuser.8)}}" alt = "{{cuser.8}}" class= "image" height="300" width="300">
+            </div> 
+            <div>
+                <ul style="list-style-type:none;">
+                    <li>
+                        {{cuser.1}} {{cuser.2}}
+                    </li>
+                    <li>
+                        {{cuser.4}}
+                    </li>
+                    <li>
+                        {{cuser.5}}
+                    </li>
+                    <li>
+                        Joined on {{cuser.7}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    	<div>
+            <div>
+                About Me
+            </div>
+            <div>
+                {{cuser.6}}
+            </div>   
+        </div>
+        <div>
+            <button>Send Message</button>
+            <button>Follow</button>
+        </div>
+    </div>
+    <br>
+
+</div>
+{% endblock %}
