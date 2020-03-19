@@ -9,24 +9,24 @@
     <div class="content">
         <div class="pro">
             <div>
-                <img src = "{{url_for('static', filename = 'uploads/' + cuser.8)}}" alt = "{{cuser.8}}" class= "image" height="300" width="300">
+                <img src = "{{url_for('static', filename = 'uploads/' + cuser.pro_pic)}}" alt = "{{cuser.pro_pic}}" class= "image" height="300" width="300">
             </div> 
             <div>
                 <ul style="list-style-type:none;">
                     <li class="name">
-                        {{cuser.1}} {{cuser.2}}
+                        {{cuser.first_name}} {{cuser.last_name}}
                     </li>
                     <li>
                         <img src="https://image.flaticon.com/icons/svg/561/561127.svg" class = "icon">
-                        <div class="pad">{{cuser.4}}</div>
+                        <div class="pad">{{cuser.email}}</div>
                     </li>
                     <li>
                         <img src="https://image.flaticon.com/icons/svg/67/67347.svg" class="icon">
-                        <div class="pad">{{cuser.5}}</div>
+                        <div class="pad">{{cuser.location}}</div>
                     </li>
                     <li>
                         <img src="https://image.flaticon.com/icons/svg/1827/1827444.svg" class="icon">
-                        <div class="pad">Joined on {{cuser.7}}</div>
+                        <div class="pad">Joined on {{cuser.date_joined}}</div>
                     </li>
                 </ul>
             </div>
@@ -36,7 +36,7 @@
                 <h2>About Me</h2>
             </div>
             <div>
-                {{cuser.6}}
+                {{cuser.biography}}
             </div>   
         </div>
         <div>

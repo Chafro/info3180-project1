@@ -8,6 +8,7 @@ import hashlib
 import datetime
 import os
 import psycopg2
+import flask_sqlalchemy
 from app import app, db, login_manager
 from flask import render_template, request, redirect, url_for, flash, session, abort
 from flask_login import login_user, logout_user, current_user, login_required
@@ -15,9 +16,7 @@ from werkzeug.utils import secure_filename
 from app.forms import LoginForm,UserForm
 from app.models import UserProfile
 import psycopg2
-def connect_db():
- DATABASE_URL = os.environ.get('SQLALCHEMY_DATABASE_URI')
- return psycopg2.connect(DATABASE_URL, sslmode='require')
+
 
 
 ###
@@ -60,18 +59,12 @@ def createprofile():
 
 @app.route('/profiles', methods=['GET', 'POST'])
 def profiles():
-    conn = connect_db()
-    cur = conn.cursor()
-    cur.execute("SELECT * FROM user_profiles;")
-    users = cur.fetchall()
+    users = UserProfile.query.all()
     return render_template('profiles.html',users=users)
 
 @app.route('/profile/<userid>')
 def profile(userid):
-    conn = connect_db()
-    cur = conn.cursor()
-    cur.execute("SELECT * FROM user_profiles WHERE id=%d;"%int(userid))
-    cuser = cur.fetchone()
+    cuser = UserProfile.query.filter_by(id=int(userid)).first()
     return render_template('profile.html',cuser=cuser)
 
 
