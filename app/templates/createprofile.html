@@ -3,40 +3,41 @@
 {% block main %} 
 
 <body>
-	<div id = "content">
+	<h1>Add Profile</h1>
+	<div class = "content">
 		<form method="POST" action="/profile" enctype="multipart/form-data">
  			{{ form.csrf_token }}
  			<div>
- 				<label>{{ form.firstname.label }}</label>
- 				{{ form.firstname(size=20) }}
+ 				{{ form.firstname.label (class = "labels") }}
+ 				{{ form.firstname (class = "inputs") }}
  			</div>
  			<div>
- 				<label>{{ form.lastname.label }}</label>
- 				{{ form.lastname(size=20) }}
+ 				{{ form.lastname.label (class = "labels") }}
+ 				{{ form.lastname (class = "inputs") }}
  			</div>
  			<div>
- 				<label>{{ form.email.label }}</label>
- 				{{ form.email(size=20) }}
+ 				{{ form.gender.label (class = "labels") }}
+ 				{{ form.gender (class = "inputs", placeholder = "Select Gender") }}
  			</div>
  			<div>
- 				<label>{{ form.gender.label }}</label>
- 				{{ form.gender }}
+ 				{{ form.email.label (class = "labels") }}
+ 				{{ form.email (class = "inputs", placeholder = "e.g. jdoe@example.com") }}
  			</div>
  			<div>
- 				<label>{{ form.location.label }}</label>
- 				{{ form.location(size=20) }}
+ 				{{ form.location.label (class = "labels") }}
+ 				{{ form.location (class = "inputs", placeholder = "e.g. Kingston, Jamaica") }}
  			</div>
  			<div>
- 				<label>{{ form.bio.label }}</label>
- 				{{ form.bio(size=40) }}
+ 				{{ form.bio.label (class = "labels") }}
+ 				{{ form.bio (id = "bio") }}
  			</div>
  			<div>
-	    		<label>{{ form.file.label }}</label>
-	    		{{ form.file(class="form-control") }}
+	    		{{ form.file.label (class = "labels") }}
+	    		{{ form.file(class="pic_but") }}
 			</div>
 
 
- 			<button type="submit">Add Profile</button>
+ 			<button type="submit" class="but">Add Profile</button>
 		</form>
 	</div>
 </body>

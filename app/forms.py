@@ -8,10 +8,10 @@ class LoginForm(FlaskForm):
     password = PasswordField('Password', validators=[InputRequired()])
 
 class UserForm(FlaskForm):
-	firstname = StringField('Firstname', validators=[InputRequired()])
-	lastname = StringField('Lastname', validators=[InputRequired()])
+	firstname = StringField('First Name', validators=[InputRequired()])
+	lastname = StringField('Last Name', validators=[InputRequired()])
 	email = StringField('Email', validators=[InputRequired()])
 	location = StringField('Location', validators=[InputRequired()])
-	gender = SelectField('Gender', choices=[('Male','Male'), ('Female','Female')])
+	gender = SelectField('Gender',default='', choices=[('','Select Gender'),('Male','Male'), ('Female','Female')])
 	bio = TextAreaField('Biograpghy')
-	file = FileField('Photo', validators=[FileRequired(),FileAllowed(['jpg', 'png', 'jpeg'])])
+	file = FileField('Profile Picture', validators=[FileRequired(),FileAllowed(['jpg', 'png', 'jpeg'])])

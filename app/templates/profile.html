@@ -4,41 +4,44 @@
 {% block main %}
 
 {% include 'flash_messages.html' %}
-<div class='flexboxx'> 
+<div> 
 
-    <div class='flex'>
-        <div>
+    <div class="content">
+        <div class="pro">
             <div>
                 <img src = "{{url_for('static', filename = 'uploads/' + cuser.8)}}" alt = "{{cuser.8}}" class= "image" height="300" width="300">
             </div> 
             <div>
                 <ul style="list-style-type:none;">
-                    <li>
+                    <li class="name">
                         {{cuser.1}} {{cuser.2}}
                     </li>
                     <li>
-                        {{cuser.4}}
+                        <img src="https://image.flaticon.com/icons/svg/561/561127.svg" class = "icon">
+                        <div class="pad">{{cuser.4}}</div>
                     </li>
                     <li>
-                        {{cuser.5}}
+                        <img src="https://image.flaticon.com/icons/svg/67/67347.svg" class="icon">
+                        <div class="pad">{{cuser.5}}</div>
                     </li>
                     <li>
-                        Joined on {{cuser.7}}
+                        <img src="https://image.flaticon.com/icons/svg/1827/1827444.svg" class="icon">
+                        <div class="pad">Joined on {{cuser.7}}</div>
                     </li>
                 </ul>
             </div>
         </div>
     	<div>
             <div>
-                About Me
+                <h2>About Me</h2>
             </div>
             <div>
                 {{cuser.6}}
             </div>   
         </div>
         <div>
-            <button>Send Message</button>
-            <button>Follow</button>
+            <button class="but">Send Message</button>
+            <button class="but fol">Follow</button>
         </div>
     </div>
     <br>
