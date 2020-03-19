@@ -7,6 +7,7 @@ This file creates your application.
 import hashlib
 import datetime
 import os
+import psycopg2
 from app import app, db, login_manager
 from flask import render_template, request, redirect, url_for, flash, session, abort
 from flask_login import login_user, logout_user, current_user, login_required
@@ -15,8 +16,8 @@ from app.forms import LoginForm,UserForm
 from app.models import UserProfile
 import psycopg2
 def connect_db():
- return psycopg2.connect(host="localhost",
-database="project1", user="project1", password="project1") 
+ DATABASE_URL = os.environ['postgres://ftgijimruwxgpb:2c5273399058f0ad0d4b04e7bdbcfeb750386af136d97845930ebfeb11416d94@ec2-52-207-93-32.compute-1.amazonaws.com:5432/d8aq5jfdrr6thn']  
+ return psycopg2.connect(DATABASE_URL, sslmode='require')
 
 
 ###
