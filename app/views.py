@@ -16,7 +16,7 @@ from app.forms import LoginForm,UserForm
 from app.models import UserProfile
 import psycopg2
 def connect_db():
- DATABASE_URL = os.environ['DATABASE_URL']
+ DATABASE_URL = os.environ['SQLALCHEMY_DATABASE_URI']
  return psycopg2.connect(DATABASE_URL, sslmode='require')
 
 
