@@ -16,7 +16,7 @@ from app.forms import LoginForm,UserForm
 from app.models import UserProfile
 import psycopg2
 def connect_db():
- DATABASE_URL = os.environ['postgres://ftgijimruwxgpb:2c5273399058f0ad0d4b04e7bdbcfeb750386af136d97845930ebfeb11416d94@ec2-52-207-93-32.compute-1.amazonaws.com:5432/d8aq5jfdrr6thn']  
+ DATABASE_URL = os.environ['DATABASE_URL']
  return psycopg2.connect(DATABASE_URL, sslmode='require')
 
 
