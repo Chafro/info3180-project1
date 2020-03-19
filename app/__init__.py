@@ -2,6 +2,7 @@ from flask import Flask
 from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 UPLOAD_FOLDER =  "./app/static/uploads"
+os.environ['DATABASE_URL'] ='postgres://ftgijimruwxgpb:2c5273399058f0ad0d4b04e7bdbcfeb750386af136d97845930ebfeb11416d94@ec2-52-207-93-32.compute-1.amazonaws.com:5432/d8aq5jfdrr6thn'
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = "change this to be a more random key"
