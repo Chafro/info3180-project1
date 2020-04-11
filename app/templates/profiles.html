@@ -6,29 +6,31 @@
 {% include 'flash_messages.html' %}
 <h1>Profiles</h1>
 <div class='flex'> 
-{% for user in users: %}
-    <div class='pros'>
-            <img src = "{{url_for('static', filename = 'uploads/' + user.pro_pic)}}" alt = "{{user.pro_pic}}" class= "image">
+    {% if users %}
+    {% else %}
+        {% for user in users: %}
+            <div class='pros'>
+                <img src = "{{url_for('static', filename = 'uploads/' + user.pro_pic)}}" alt = "{{user.pro_pic}}" class= "image">
         
-
-    		  <ul style="list-style-type:none;">
-    			 <li class="name">
-    				{{user.first_name}} {{user.last_name}}
-    			 </li>
-    			 <li>
-    				<img src="https://cdn3.iconfinder.com/data/icons/iconoid-ui-essentials/32/ui_user_account_person_username-512.png" class = "icon">
-                    <div class="pad">{{user.gender}}</div>
-    			 </li>
-    			 <li>
-    				<img src="https://image.flaticon.com/icons/svg/67/67347.svg" class="icon">
-                    <div class="pad">{{user.location}}</div>
-    			 </li>
-    		  </ul>
-    	<form action="/profile/{{user.id}}">
-    		<input class="but" type="submit" value="View Profile" />
-		</form>
-    </div>
-    <br>
-{% endfor%}
+                <ul style="list-style-type:none;">
+                    <li class="name">
+    				    {{user.first_name}} {{user.last_name}}
+                    </li>
+                    <li>
+    				    <img src="https://cdn3.iconfinder.com/data/icons/iconoid-ui-essentials/32/ui_user_account_person_username-512.png" class = "icon">
+                        <div class="pad">{{user.gender}}</div>
+                    </li>
+                    <li>
+                        <img src="https://image.flaticon.com/icons/svg/67/67347.svg" class="icon">
+                        <div class="pad">{{user.location}}</div>
+                    </li>
+                </ul>
+                <form action="/profile/{{user.id}}">
+                    <input class="but" type="submit" value="View Profile" />
+                </form>
+            </div>
+            <br>
+        {% endfor %}
+    {% endif %}
 </div>
 {% endblock %}
