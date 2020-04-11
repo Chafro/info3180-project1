@@ -6,7 +6,7 @@
 {% include 'flash_messages.html' %}
 <h1>Profiles</h1>
 <div class='flex'> 
-    {% if users %}
+    {% if users == null %}
     {% else %}
         {% for user in users: %}
             <div class='pros'>
